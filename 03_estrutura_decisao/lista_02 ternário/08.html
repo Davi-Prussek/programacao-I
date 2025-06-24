@@ -8,11 +8,35 @@
     */
 
     //ENTRADA
+let combustivel = Number(prompt("Qual o preço do combustível?"));
 
+let litro = Number(prompt("Quantos litros você gasta pra ir e voltar do trabalho diariamente?"));
 
+let publico = Number(prompt("Qual o preço do transporte público?"));
+
+//loop while
+
+while(isNaN(combustivel)) {
+  combustivel = Number(prompt("Qual o preço do combustível?"));
+}
+while(isNaN(litro)) {
+  litro = Number(prompt("Quantos litros você gasta pra ir e voltar do trabalho diariamente?"));
+}
+while(isNaN(publico)) {
+  publico = Number(prompt("Qual o preço do transporte público?"));
+}
     //PROCESSAMENTO
 
+  //Cálculo
+  const carro = combustivel*litro;
 
     //SAÍDA
-
+    
+ (publico > carro) ?
+ alert("Ir com veículo próprio é mais barato, fica " +(carro).toFixed(2)+ " reais, e " +(publico - carro).toFixed(2)+" reais mais barato") 
+ 
+:(carro > publico) ?
+ alert("Transporte Público é mais barato, fica " +(publico).toFixed(2)+ " reais, e " +(carro - publico).toFixed(2)+ " reais mais barato") 
+ 
+:alert("Os dois custam o mesmo valor de "+(publico).toFixed(2)+" reais")
 </script>
