@@ -12,8 +12,26 @@
     */
 
     //ENTRADA
+let conta1 = Number(prompt("Qual é a sua despesa com contas de água?"));
+while(isNaN(conta1) || conta1 <= 0) {
+  alert("Insira apenas valores numéricos maiores que zero");
+}
 
+let conta2 = Number(prompt("Qual é a sua despesa com contas de energia elétrica?"));
+while(isNaN(conta2) || conta2 <= 0) {
+  alert("Insira apenas valores numéricos maiores que zero");
+}
 
+let conta3 = Number(prompt("Qual é a sua despesa com contas de telefone?"));
+while(isNaN(conta3)) {
+  alert("Insira apenas valores numéricos maiores que zero");
+  conta3 = Number(prompt("Qual é a sua despesa com contas de telefone?"));
+}
+
+let conta4 = Number(prompt("Qual é a sua despesa com contas de supermercado?"));
+while(isNaN(conta4)) {
+  alert("Insira apenas valores numéricos maiores que zero");
+}
     //PROCESSAMENTO
 
 
