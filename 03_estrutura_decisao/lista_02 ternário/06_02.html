@@ -21,13 +21,16 @@ const grande = 7;
     //PROCESSAMENTO
 
 (tamanho!=="p"&&tamanho!=="m"&&tamanho!=="g") ? alert("Insira um tamanho válido")
+
 :(isNaN(idade)) ? alert("Insira um valor numérico")
+
 :(idade < 0) ? alert("Insira um número válido")
+
 :(tamanho=="p") ? idadeCanina=idade*pequeno 
 :(tamanho=="m") ? idadeCanina=idade*medio
-:(tamanho=="g") ? idadeCanina=idade*grande
+:idadeCanina=idade*grande;
 
     //SAÍDA
 
-alert("Um cachorro de " +idade+ "anos humanos, em anos caninos terá " +idadeCanina+ " anos");
+alert("Um cachorro de " +idade+ " anos humanos, em anos caninos terá " +idadeCanina+ " anos");
 </script>

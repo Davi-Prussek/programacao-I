@@ -8,23 +8,31 @@
     */
 
     //ENTRADA
+
+    //parte I
 let combustivel = Number(prompt("Qual o preço do combustível?"));
 
-let litro = Number(prompt("Quantos litros você gasta pra ir e voltar do trabalho diariamente?"));
-
-let publico = Number(prompt("Qual o preço do transporte público?"));
-
-//loop while
-
-while(isNaN(combustivel)) {
+while(isNaN(combustivel) || combustivel <= 0) {
+  alert("Escreva apenas valores numéricos maiores que zero");
   combustivel = Number(prompt("Qual o preço do combustível?"));
 }
-while(isNaN(litro)) {
+
+//parte II
+let litro = Number(prompt("Quantos litros você gasta pra ir e voltar do trabalho diariamente?"));
+
+while(isNaN(litro) || litro <= 0) {
+  alert("Escreva apenas valores numéricos maiores que zero");
   litro = Number(prompt("Quantos litros você gasta pra ir e voltar do trabalho diariamente?"));
 }
-while(isNaN(publico)) {
+
+//parte III
+let publico = Number(prompt("Qual o preço do transporte público?"));
+
+while(isNaN(publico) || publico <= 0) {
+  alert("Escreva apenas valores numéricos maiores que zero");
   publico = Number(prompt("Qual o preço do transporte público?"));
 }
+
     //PROCESSAMENTO
 
   //Cálculo
@@ -33,10 +41,10 @@ while(isNaN(publico)) {
     //SAÍDA
     
  (publico > carro) ?
- alert("Ir com veículo próprio é mais barato, fica " +(carro).toFixed(2)+ " reais, e " +(publico - carro).toFixed(2)+" reais mais barato") 
+ alert("Ir com veículo próprio é mais barato, fica " +(carro).toFixed(2)+ " reais, e " +(publico - carro).toFixed(2)+" reais mais barato que usar transporte público") 
  
 :(carro > publico) ?
- alert("Transporte Público é mais barato, fica " +(publico).toFixed(2)+ " reais, e " +(carro - publico).toFixed(2)+ " reais mais barato") 
+ alert("Transporte Público é mais barato, fica " +(publico).toFixed(2)+ " reais, e " +(carro - publico).toFixed(2)+ " reais mais barato que usar veículo próprio") 
  
-:alert("Os dois custam o mesmo valor de "+(publico).toFixed(2)+" reais")
+:alert("Os dois custam o mesmo valor de "+(publico).toFixed(2)+" reais");
 </script>

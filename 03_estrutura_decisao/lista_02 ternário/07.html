@@ -14,18 +14,18 @@
     //ENTRADA
 let conceito = Number(prompt("Qual sua nota?\n\n(Use ponto ao invés de vírgula)"));
 
-  //PROCESSAMENTO && //SAÍDA
 while(isNaN(conceito)) {
   alert("Escreva apenas números");
   conceito = Number(prompt("Qual sua nota?\n\n(Use ponto ao invés de vírgula)"));
 }
 
+  //PROCESSAMENTO && //SAÍDA
+
 (conceito <= 10.0 && conceito >= 9.0) ? alert("Sua nota conceitual é A") 
 :(conceito < 9 && conceito >= 8.0) ? alert("Sua nota conceitual é B")
 :(conceito < 8 && conceito >= 7.0) ? alert("Sua nota conceitual é C")
 :(conceito < 7 && conceito >= 6.0) ? alert("Sua nota conceitual é D") 
-:alert("Sua nota conceitual é E")
-
+:alert("Sua nota conceitual é E");
 //NOTAS
 
 /*Eu usei o loop while porque já sabia um pouco por causa do MIMO, eu já tô terminando o nível 4*/

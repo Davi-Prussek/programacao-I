@@ -29,7 +29,7 @@ while(tamanho!=="p" && tamanho!=="m" && tamanho!=="g") {
     //PROCESSAMENTO
 (tamanho=="p") ? idadeCanina=idade*pequeno 
 :(tamanho=="m") ? idadeCanina=idade*medio
-:(tamanho=="g") ? idadeCanina=idade*grande
+:idadeCanina=idade*grande;
 
     //SAÍDA
 alert("Um cachorro de " +idade+ "anos humanos, em anos caninos terá " +idadeCanina+ " anos");
