@@ -13,10 +13,24 @@
     */
 
     //ENTRADA
-    
-    
-    //PROCESSAMENTO
+let turno = prompt("Qual turno você está?\n\n(M-matutino, V-Vespertino ou N-Noturno)").trim().toUpperCase();
 
+while(turno !== "M" && turno !== "V" && turno !== "N"){
+alert("Responda apenas com os exemplos citados");
+turno = prompt("Qual turno você está?\n\n(M-matutino, V-Vespertino ou N-Noturno)").toUpperCase().trim();
+}
+    //PROCESSAMENTO
+switch (turno) {
+    case "M":
+        alert("Bom dia!");
+        break;
+        case "V":
+            alert("Boa tarde!");
+            break;
+        default:
+            alert("Boa noite!");
+            break;
+}
     
     //SAÍDA
 

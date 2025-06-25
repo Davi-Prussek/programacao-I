@@ -6,11 +6,26 @@
     */
 
     //ENTRADA
+    let numero = Number(prompt("Escreva um número"));
 
-    
+    while (isNaN(numero)) {
+        alert("Escreva apenas com números")
+        numero = Number(prompt("Escreva um número"));
+    }
+
     //PROCESSAMENTO
 
-    
+    let conta = numero % 2;
+
+    switch (conta) {
+        case (0):
+            alert("É par");
+            break;
+        default:
+            alert("E ímpar");
+            break;
+    }
+
     //SAÍDA
 
 </script>
