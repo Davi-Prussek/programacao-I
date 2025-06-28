@@ -9,26 +9,43 @@
     */
 
     //ENTRADA
+let numero1 = Number(prompt("Digite o primeiro número"));
+while(isNaN(numero1)) {
+  alert("Escreva apenas números");
+  numero1 = Number(prompt("Digite o primeiro número"));}
 
+let numero2 = Number(prompt("Digite o segundo número"));
+while(isNaN(numero2)) {
+  alert("Escreva apenas números");
+  numero2 = Number(prompt("Digite o segundo número"));}
 
     //PROCESSAMENTO
 
-    
+
     //SAÍDA
 
     //FUNÇÕES
 const valor = 0; 
     function imparPar(resultado) {
-        resultado %= 2; 
+        resultado %= (2); 
         switch (resultado) {
-            case 0:
-                alert("É par");
+          switch ((resposta == divisão || resposta == multiplicação) && numero1 || numero2 == 0) 
+          case true:
+            alert("É neutro");
+            break;
+            default:
+            break;
+        }
+          
+          }
+          case true:
+              alert("É par");
                 break;
                 default:
                     alert("É ímpar")
         }
     }
-    function positivoNegativo () {
+    function positivoNegativo(resultado) {
         resultado > 0;
         switch(resultado) {
         case true:
@@ -38,6 +55,9 @@ const valor = 0;
             alert("É negativo");
             break;
     }
+    } 
+    function decimal(resultado) {
+      
     }
 
     imparPar(valor);
