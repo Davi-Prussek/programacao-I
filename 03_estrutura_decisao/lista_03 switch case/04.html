@@ -6,11 +6,26 @@
     */
 
     // ENTRADA
+let letra = prompt("Digite uma letra").trim().toUpperCase();
 
-    
-    // PROCESSAMENTO
-
-    
-    // SAÍDA
-
+while(typeof letra !== "string") {
+  alert("Insira apenas letras");
+  letra = prompt("Digite uma letra").trim().toUpperCase();
+}
+    // PROCESSAMENTO && SAÍDA
+  if (letra !== "A" && letra !== "B" && letra !== "C" && letra !== "D" && letra !== "E" && letra !== "F" && letra !== "G" && letra !== "H" && letra !== "I" && letra !== "J" && letra !== "K" && letra !== "L" && letra !== "M" && letra !== "N" && letra !== "O" && letra !== "P" && letra !== "Q" && letra !== "R" && letra !== "S" && letra !== "T" && letra !== "U" && letra !== "V" && letra !== "W" && letra !== "X" && letra !== "Y" && letra !== "Z") {
+    alert("Escreve só uma letra do alfabeto, seu animal");
+  } else {
+switch (letra) {
+  case "A":
+  case "E":
+  case "I":
+  case "O":
+  case "U":
+    alert("É uma vogal");
+    break;
+    default:
+    alert("É uma consoante");
+    break;
+}}
 </script>
