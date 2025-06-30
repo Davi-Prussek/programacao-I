@@ -9,56 +9,84 @@
     */
 
     //ENTRADA
+  function execução() {
 let numero1 = Number(prompt("Digite o primeiro número"));
 while(isNaN(numero1)) {
   alert("Escreva apenas números");
   numero1 = Number(prompt("Digite o primeiro número"));}
-
+  
 let numero2 = Number(prompt("Digite o segundo número"));
 while(isNaN(numero2)) {
   alert("Escreva apenas números");
   numero2 = Number(prompt("Digite o segundo número"));}
+  
+  let conta = prompt("Qual operação deseja realizar?\n\n(adição, subtração, divisão ou multiplicação)").trim().toLowerCase();
+  while (conta !== "adição" && conta !== "subtração" && conta !== "divisão" && conta !== "multiplicação") {
+    alert("Insira uma operacão válida");
+    conta = prompt("Qual operação deseja realizar?\n\n(adição, subtração, divisão ou multiplicação)").trim().toLowerCase();
+  }
 
+let resultado;
     //PROCESSAMENTO
-
-
-    //SAÍDA
-
-    //FUNÇÕES
-const valor = 0; 
-    function imparPar(resultado) {
-        resultado %= (2); 
-        switch (resultado) {
-          switch ((resposta == divisão || resposta == multiplicação) && numero1 || numero2 == 0) 
-          case true:
-            alert("É neutro");
-            break;
-            default:
-            break;
-        }
-          
-          }
-          case true:
-              alert("É par");
-                break;
-                default:
-                    alert("É ímpar")
-        }
-    }
-    function positivoNegativo(resultado) {
-        resultado > 0;
-        switch(resultado) {
-        case true:
-            alert("É positivo");
-            break;
+    
+   //FUNÇÕES
+    function imparPar() {
+      if (resultado % 1 > 0) {
+      alert("Ímpar/par não se aplica a decimais");
+      return;} 
+      if (resultado == 0) {
+        alert("Não é par nem ímpar, é neutro");}
+      else if (resultado % 2 > 0) {
+          alert("É ímpar");}
+      else {
+        alert("É par");}}
+    function positivoNegativo() {
+      if (resultado == 0) {
+       alert("Não é positivo nem negativo, é neutro");}
+      else if (resultado > 0) {
+       alert("É positivo");}
+      else {
+       alert("É negativo");}
+  }
+    function decimal() {
+    switch(resultado % 1 > 0) {
+      case true:
+        alert("Tem decimais");
+        break;
         default:
-            alert("É negativo");
-            break;
+        alert("Não tem decimais");
+        break;
+    }}
+    
+  //CONTAS
+switch (conta) {
+  //ADIÇÃO
+  case "adição":
+  resultado = numero1 + numero2;
+  break;
+  //SUBTRAÇÃO
+  case "subtração":
+  resultado = numero1 - numero2;
+  break;
+  //DIVISÃO
+  case "divisão":
+  if ((numero2 == 0)) {
+    alert("Indefinido");
+    return;
+    } else {
+  resultado = numero1 / numero2;
     }
-    } 
-    function decimal(resultado) {
-      
-    }
-
-    imparPar(valor);
+  break;
+  //MULTIPLICAÇÃO
+  case "multiplicação":
+  resultado = numero1 * numero2;
+    break;
+}
+alert("O resultado da operação é " +resultado);
+imparPar();
+positivoNegativo();
+decimal();
+}
+    //SAÍDA
+execução();
 </script>
