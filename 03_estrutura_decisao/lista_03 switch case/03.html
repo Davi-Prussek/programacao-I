@@ -49,8 +49,8 @@ let resultado;
        alert("É negativo");}
   }
     function decimal() {
-    switch(resultado % 1 > 0) {
-      case true:
+    switch(Number.isInteger(resultado)) {
+      case false:
         alert("Tem decimais");
         break;
         default:
