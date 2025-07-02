@@ -31,23 +31,45 @@ let resultado;
     
    //FUNÇÕES
     function imparPar() {
-      if (resultado % 1 > 0) {
-      alert("Ímpar/par não se aplica a decimais");
-      return;} 
-      if (resultado == 0) {
-        alert("Não é par nem ímpar, é neutro");}
-      else if (resultado % 2 > 0) {
-          alert("É ímpar");}
-      else {
-        alert("É par");}}
+    switch (resultado % 1 > 0) {
+      case true:
+        alert("Ímpar/par não se aplica a decimais");
+        return;
+        break;
+    }
+    switch (resultado === 0) {
+      case true:
+      alert("Não é par nem ímpar, é neutro");
+      return;
+      break;
+    }
+      switch (resultado % 2 > 0) {
+        case true:
+          alert("É ímpar");
+          return;
+        case false:
+          alert("É par");
+          return;
+        break;
+      }
+    }
     function positivoNegativo() {
-      if (resultado == 0) {
-       alert("Não é positivo nem negativo, é neutro");}
-      else if (resultado > 0) {
-       alert("É positivo");}
-      else {
-       alert("É negativo");}
-  }
+
+      switch (resultado === 0) {
+        case true:
+      alert("Não é positivo nem negativo, é neutro");
+      return;
+      break;
+      }
+      switch (resultado > 0) {
+        case true:
+        alert("É positivo");
+        return;
+        case false:
+          alert("É negativo");
+          return;
+          break;
+      }}
     function decimal() {
     switch(Number.isInteger(resultado)) {
       case false:
