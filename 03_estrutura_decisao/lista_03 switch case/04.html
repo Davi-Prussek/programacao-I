@@ -10,14 +10,9 @@ let letra = prompt("Digite uma letra").trim().toUpperCase();
 
 while(!isNaN(letra)) {
   alert("Insira apenas letras");
-  letra = prompt("Digite uma letra").trim().toUpperCase();
+  letra = prompt("Digite uma letra").trim().toUpperCase().charAt();
 }
-    // PROCESSAMENTO
-  function execução() {
-  if (letra !== "A" && letra !== "B" && letra !== "C" && letra !== "D" && letra !== "E" && letra !== "F" && letra !== "G" && letra !== "H" && letra !== "I" && letra !== "J" && letra !== "K" && letra !== "L" && letra !== "M" && letra !== "N" && letra !== "O" && letra !== "P" && letra !== "Q" && letra !== "R" && letra !== "S" && letra !== "T" && letra !== "U" && letra !== "V" && letra !== "W" && letra !== "X" && letra !== "Y" && letra !== "Z") {
-    alert("Escreve só uma letra do alfabeto, seu animal");
-    return;
-  } else {
+    // PROCESSAMENTO && SAÍDA
 switch (letra) {
   case "A":
   case "E":
@@ -29,8 +24,5 @@ switch (letra) {
     default:
     alert("É uma consoante");
     break;
-}}
 }
-//SAÍDA
-execução();
 </script>

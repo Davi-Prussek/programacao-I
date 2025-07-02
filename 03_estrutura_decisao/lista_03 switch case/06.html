@@ -10,10 +10,31 @@
     */
 
     // ENTRADA
+let idade = Number(prompt("Qual a idade do cachorro?"));
+while(isNaN(idade)) {
+alert("Responda apenas números!");
+idade = Number(prompt("Qual a idade do cachorro?"));
+}
 
-    
+let tamanho = prompt("Qual tamanho de cachorro você gostaria de saber a idade convertida?\n\nTamanhos: pequeno, mediano ou grande").trim().charAt().toUpperCase();
+while(tamanho !=="P" && tamanho !=="M" && tamanho !=="G") {
+alert("Responda apenas com as opções descritas");
+tamanho = prompt("Qual tamanho de cachorro você gostaria de saber a idade convertida?\n\nTamanhos: pequeno, mediano ou grande").trim().charAt().toUpperCase();
+}
+let fatorCanino;
+switch (tamanho) {
+    case "P":
+    fatorCanino = idade * 5;
+        break;
+    case "M":
+        fatorCanino = idade * 6;
+        break;
+    case "G":
+        fatorCanino = idade * 7;
+        break;
+}
     // PROCESSAMENTO
-
+alert("O seu cachorro vai ter " +fatorCanino+ " anos");
     
     // SAÍDA
 
