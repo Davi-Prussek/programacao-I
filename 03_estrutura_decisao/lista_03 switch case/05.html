@@ -12,11 +12,104 @@
     */
 
     //ENTRADA
-
     
-    //PROCESSAMENTO
+  //parte I
+  let telefone = prompt("Telefonou para a vítima?").trim();
+  
+  while (telefone !== "sim" && telefone !== "não") {
+    alert("Responda apenas com sim ou não e escreve direito");
+  telefone = prompt("Telefonou para a vítima?").trim();
+  }
+  
+  //parte II
+  let local = prompt("Esteve no local do crime?").trim();
+    
+  while (local !== "sim" && local !== "não") {
+    alert("Responda apenas com sim ou não e escreve direito");
+    local = prompt("Esteve no local do crime?").trim();
+  }
+  
+  //parte III
+    let  mora = prompt("Mora perto da vítima?").trim();
+    
+  while (mora !== "sim" && mora !== "não") {
+    alert("Responda apenas com sim ou não e escreve direito");
+    mora = prompt("Mora perto da vítima?").trim();
+  }
+  
+  //parte IV
+    let devia = prompt("Devia para a vítima?").trim();
+    
+  while (devia !== "sim" && devia !== "não") {
+    alert("Responda apenas com sim ou não e escreve direito");
+    devia = prompt("Devia para a vítima?").trim();
+  }
+  
+  //parte V
+    let trabalho = prompt("Já trabalhou com a vítima?").trim();
+    
+while(trabalho !== "sim" && trabalho !== "não") {
+  alert("Responda apenas com sim ou não e escreve direito");
+  trabalho = prompt("Já trabalhou com a vítima?").trim();
+}
+//parte VI
+let telefone1 = 0;
+let local1 = 0;
+let mora1 = 0;
+let devia1 = 0;
+let trabalho1 = 0;
 
+    //PROCESSAMENTO
+    
+  //parte I
+switch(telefone) {
+  case "sim":
+  telefone1 +=1;
+  break;
+}
+//parte II
+switch(local) {
+  case "sim":
+  local1 +=1;
+  break;
+}
+//parte III
+switch(mora) {
+  case "sim":
+  mora1 +=1;
+  break;
+}
+//parte IV
+switch(devia) {
+  case "sim":
+  devia1 +=1;
+  break;
+}
+//parte V
+switch(trabalho) {
+  case "sim":
+  trabalho1 +=1;
+  break;
+}
+
+//parte VI
+const resultado = (telefone1 + local1 + mora1 + devia1 + trabalho1);
 
     //SAÍDA
-
+switch (resultado) {
+  case 0:
+  case 1:
+    alert("inocente!");
+    break;
+    case 2:
+      alert("Suspeito!");
+    break;
+    case 3:
+      case 4:
+     alert("Cúmplice!");
+    break;
+    case 5:
+      alert("Assassino!");
+    break;
+}
 </script>
