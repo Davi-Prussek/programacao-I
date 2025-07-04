@@ -16,16 +16,27 @@
     }
     //PROCESSAMENTO
 let carrosSUV = ["Tiggo", "Sportage", "Tucson", "EcoSport"];
-    
-//Estou aprendendo ainda a usar essa função estranha
+let novaLista = [];
 
-    let novaLista = carrosSUV.filter(function(naoEscolhido) {
-        return naoEscolhido.toLowerCase() !== carro;
-    });
+switch (carro !== "tiggo") {
+    case true:
+novaLista.push("tiggo");
+    break;
+} switch (carro !== "sportage") {
+    case true:
+novaLista.push("sportage");
+    break;
+}  switch (carro !== "tucson") {
+    case true:
+novaLista.push("tucson");
+    break;
+}  switch (carro !== "ecosport") {
+    case true:
+novaLista.push("ecosport");
+    break;
+}
 
     //SAÍDA
-
 alert("A lista antiga é: " +carrosSUV.join(" - ")+", já a nova lista é: " +novaLista.join(" - "));
 
 </script>
-
