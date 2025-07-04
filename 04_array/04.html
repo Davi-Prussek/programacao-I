@@ -9,11 +9,23 @@
     */
 
     //ENTRADA
-
-
+    let carro = prompt("Qual carro deseja remover da lista?\n\n(modelos: Tiggo, Sportage, Tucson, EcoSport)").trim().toLowerCase();
+    while (carro !== "tiggo" && carro !== "sportage" && carro !== "tucson" && carro !== "ecosport") {
+        alert("Escolha um dos modelos citados!");
+        carro = prompt("Qual carro deseja remover da lista?\n\n(modelos: Tiggo, Sportage, Tucson, EcoSport)").trim().toLowerCase();
+    }
     //PROCESSAMENTO
+let carrosSUV = ["Tiggo", "Sportage", "Tucson", "EcoSport"];
+    
+//Estou aprendendo ainda a usar essa função estranha
 
+    let novaLista = carrosSUV.filter(function(naoEscolhido) {
+        return naoEscolhido.toLowerCase() !== carro;
+    });
 
     //SAÍDA
 
+alert("A lista antiga é: " +carrosSUV.join(" - ")+", já a nova lista é: " +novaLista.join(" - "));
+
 </script>
+
