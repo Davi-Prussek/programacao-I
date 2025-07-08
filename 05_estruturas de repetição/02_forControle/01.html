@@ -11,12 +11,14 @@
 
     //ENTRADA
     let listaDeLetras = ["a", "b", "d", "e", "E", "F", "C", "U", "u", "e", "W", "D"];
-    let listaMinusculas = [];
+    let listanova = [];
     //PROCESSAMENTO
-
     
-    
+    for (let i = 0;i < listaDeLetras.length;i++) {
+        let minuscula = listaDeLetras[i].toLowerCase();
+        if (!listanova.includes(minuscula)) {
+            listanova.push(minuscula)
+        }}
     //SAÍDA
-    
-
+    alert(listanova.join(" - "));
 </script>
