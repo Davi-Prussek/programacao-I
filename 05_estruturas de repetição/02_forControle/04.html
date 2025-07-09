@@ -6,11 +6,15 @@
     */
 
     //ENTRADA
-
-
+    let listaNumeros = [];
+    let impares = [];
+    
+for (let i = 1;i <= 50;i++) {
+    listaNumeros.push([i]);}
     //PROCESSAMENTO
-
-
+for (let j = 0;j <= listaNumeros.length;j++) {
+    if (listaNumeros[j] % 2 > 0) {
+        impares.push(listaNumeros[j]);}}
     //SAÍDA
-
+document.write(impares.join(", "));
 </script>
