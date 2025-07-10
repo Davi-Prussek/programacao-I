@@ -6,11 +6,35 @@
     */
 
     //ENTRADA
+    //parte I
+    let listaFinal = [];
 
-    
+    //parte II
+    let numeroInicial = Number(prompt("Informe um número inicial para começar sua lista de números inteiros e ímpares"));
+    while (isNaN(numeroInicial)) {
+        alert("Digite apenas números!");
+        numeroInicial = Number(prompt("Informe um número inicial para começar sua lista de números inteiros e ímpares"));
+    }
+    //parte III
+    let numeroFinal = Number(prompt("Informe um número final para terminar sua lista de números inteiros e ímpares"));
+    while (isNaN(numeroFinal)) {
+        alert("Digite apenas números!");
+        numeroFinal = Number(prompt("Informe um número final para terminar sua lista de números inteiros e ímpares"));
+    }
+    //parte IV
+    for (; numeroInicial >= numeroFinal;) {
+        alert("ERRO!");
+        alert("O número inicial deve ser menor que o número final!")
+        numeroInicial = Number(prompt("Informe um número inicial para começar sua lista de números inteiros e ímpares"));
+        numeroFinal = Number(prompt("Informe um número final para terminar sua lista de números inteiros e ímpares"));
+    }
     //PROCESSAMENTO
 
-    
+    for (; numeroInicial <= numeroFinal; numeroInicial++) {
+        if (Number.isInteger(numeroInicial)) {
+            if (numeroInicial % 2 > 0) {
+                listaFinal.push(numeroInicial);
+    }}}
     //SAÍDA
-
+    document.write("A lista de números ímpares inteiros será: <br>" + listaFinal.join(", "));
 </script>
