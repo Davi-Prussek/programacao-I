@@ -6,22 +6,24 @@
     */
 
     //ENTRADA
-let numero = Number(prompt("Informe um número"));
-while(isNaN(numero)) {
-    alert("Digite somente números!");
-    numero = Number(prompt("Informe um número"));}
-let teste = 0;
+    let numero = Number(prompt("Informe um número"));
+    while (isNaN(numero)) {
+        alert("Digite somente números!");
+        numero = Number(prompt("Informe um número"));
+    }
+    let teste = 0;
     //PROCESSAMENTO
-for (let i = 1;i <= numero;i++) {
-    if (numero % i === 0) {
-        teste +=1;
-    }}
+    for (let i = 1; i <= numero; i++) {
+        if (numero % i === 0) {
+            teste += 1;
+        }}
     //SAÍDA
-switch (teste === 2) {
-    case true: 
-    alert("É primo!");
-    break;
-    default:
-    alert("Não é primo!");
-    break;}
+    switch (teste === 2) {
+        case true:
+            alert("É primo!");
+            break;
+        default:
+            alert("Não é primo!");
+            break;
+    }
 </script>

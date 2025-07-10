@@ -30,11 +30,11 @@
     }
     //PROCESSAMENTO
 
-    for (; numeroInicial <= numeroFinal; numeroInicial++) {
+    for (; numeroInicial < numeroFinal; numeroInicial++) {
         if (Number.isInteger(numeroInicial)) {
             if (numeroInicial % 2 > 0) {
                 listaFinal.push(numeroInicial);
-    }}}
+            }}}
     //SAÍDA
     document.write("A lista de números ímpares inteiros será: <br>" + listaFinal.join(", "));
 </script>

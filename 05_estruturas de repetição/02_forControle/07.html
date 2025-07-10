@@ -6,12 +6,12 @@
     */
 
     //ENTRADA
-let populacao = 80000;
-const limite = 200000;
+    const limite = 200000;
+    let validar = 0;
     //PROCESSAMENTO
-for (let i = 1;populacao <= limite;) {
-    //populacao+=0.03
-}
+    for (let populacao = 80000; populacao <= limite; populacao += populacao * 0.03) {
+        validar += 1;
+    }
     //SAÍDA
-alert(i);
+    alert("Vai demorar mais ou menos: " + (validar - 1) + " anos e alguns meses");
 </script>
