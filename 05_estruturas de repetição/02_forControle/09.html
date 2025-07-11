@@ -6,11 +6,20 @@
     */
 
     //ENTRADA
-
-    
+    let populacaoInicial
+    let populacao = 50000;
+    let j = 5;
+    let k = 10;
+    let i = 0;
     //PROCESSAMENTO
-    
-
+    for (; i < j; i++) {
+        populacao += populacao * 0.015;
+    }
+    let result5 = populacao;
+    for (; i < k; i++) {
+        populacao += populacao * 0.015;
+    }
+    let result10 = populacao;
     //SAÍDA
-
+    alert("Em 5 anos uma população de vai ter mais ou menos " + result5.toFixed(0) + " pessoas, já em 10 anos vai ter mais ou menos " + result10.toFixed(0) + " pessoas");
 </script>
