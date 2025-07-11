@@ -1,4 +1,5 @@
 <script>
+    /*
 for (let i = 0; i < listaDeLetras.length; i++) {
          listaDeLetras[i] = listaDeLetras[i].toLowerCase;
         }
@@ -7,5 +8,22 @@ for (let i = 0; i < listaDeLetras.length; i++) {
                 listaDeLetras.pop(n)
             }
          }   
-            
+]        */
+let representante1 = prompt("Qual o nome do primeiro candidato?").trim().toLowerCase();
+while(isNaN(representante1)) {
+    alert("Escreva apenas usando letras!");
+    representante1 = prompt("Qual o nome do primeiro candidato?").trim().toLowerCase();
+}
+
+let representante2 = prompt("Qual o nome do segundo candidato?").trim().toLowerCase();
+while(isNaN(representante2)) {
+    alert("Escreva apenas usando letras!");
+    representante2 = prompt("Qual o nome do segundo candidato?").trim().toLowerCase();
+}
+
+let representante3 = prompt("Qual o nome do terceiro candidato?").trim().toLowerCase();
+while(isNaN(representante3)) {
+    alert("Escreva apenas usando letras!");
+    representante3 = prompt("Qual o nome do terceiro candidato?").trim().toLowerCase();
+}
 </script>
