@@ -5,11 +5,12 @@
     */
 
     //ENTRADA
-
-
+    let saldo = 1000;
+    let i = 0;
     //PROCESSAMENTO
-
-
+    for (; saldo <= 2000; i++) {
+        saldo += saldo * 0.02;
+    }
     //SAÍDA
-
+    alert("O Investimento vai demorar: " + i + " dias para chegar a 2.000,00 reais");
 </script>
