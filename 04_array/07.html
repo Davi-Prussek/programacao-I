@@ -23,9 +23,9 @@ const nomeCores = ["azul", "amarelo", "verde", "branco", "preto", "marrom", "cin
     }
     //PROCESSAMENTO
     
-    const indice = Math.floor(Math.random() * 7);
+    const i = Math.floor((Math.random() * 7));
 
-    if (nomeCores[indice] == cor) {
+    if (nomeCores[i] == cor) {
         alert("PARABÉNS! VOCÊ ESTÁ COM SORTE NA COR " +cor.toUpperCase()+ "!");
     } else {
         alert("NÃO FOI DESSA VEZ... TENTE NOVAMENTE!");

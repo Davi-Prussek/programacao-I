@@ -16,15 +16,12 @@
         palavra = prompt("Digite uma palavra").trim().toLowerCase();
     }
 
-    
-
     let letra = prompt("Digite uma letra da palavra pedida anteriormente\n\n(A palavra é: "+palavra+")");
     while (!palavra.includes(letra)) {
         alert("Digite somente letras existentes na palavra");
         letra = prompt("Digite uma letra da palavra pedida anteriormente\n\n(A palavra é: "+palavra+")");
     }
     //PROCESSAMENTO
-    const achar = [palavra];
     let posicao = palavra.indexOf(letra);
 
     //SAÍDA
