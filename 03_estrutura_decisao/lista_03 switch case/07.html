@@ -16,13 +16,9 @@ let mes = prompt("Qual mês do ano você está?").trim().toLowerCase();
 
 while(mes!=="janeiro"&&mes!=="fevereiro"&&mes!=="março"&&mes!=="abril"&&mes!=="maio"&&mes!=="junho"&&mes!=="julho"&&mes!=="agosto"&& mes!=="setembro"&&mes!=="outubro"&&mes!=="novembro"&&mes!=="dezembro") {
     alert("Insira um mês válido!");
-mes = prompt("Qual mês do ano você está?").trim().toLowerCase();
-}
-
+mes = prompt("Qual mês do ano você está?").trim().toLowerCase();}
     //PROCESSAMENTO
-
 let mes2 = 0;
-
 switch (mes) {
 case "janeiro":
 mes2 +=1;
@@ -59,77 +55,59 @@ mes2 +=11;
 break;
 case "dezembro":
 mes2 +=12;
-break;
-
-}
+break;}
 //SAÍDA
-
 switch (hemisferio) {
-
 //hemisfério norte
 case "norte":
-
 switch (mes2) {
-
 //primavera
 case 3:
 case 4:
 case 5:
 alert("é primavera");
 break;
-
 //verão
 case 6:
 case 7:
 case 8:
 alert("é verão");
 break;
-
 //outono
 case 9:
 case 10:
 case 11:
 alert("É outono");
 break;
-
 //inverno
 default:
 alert("É inverno");
+break;}
 break;
-}
-break;
-
 //Hemisfério sul 
 case "sul":
-
 switch (mes2) {
-
 //outono
 case 3:
 case 4:
 case 5:
 alert("É outono");
 break;
-
 //inverno
 case 6:
 case 7:
 case 8:
 alert("É inverno");
 break;
-
 //primavera
 case 9:
 case 10:
 case 11:
 alert("É primavera");
 break;
-
 //verão
 default:
 alert("É verão");
-break;
-}
-break;
-}
+break;}
+break;}
 </script>
