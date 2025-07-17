@@ -56,15 +56,15 @@
     let totalVotos = candidatoJoaozinho.concat(candidatoMariazinha, nulo, branco);
     //Conta pra descobrir a porcentagem dos votos nulos em relação ao total de votos
     let porcentagemNulo = ((nulo.length / totalVotos.length) * 100);
-    //Conta pra descobrir a porcentagem dos votos nulos em relação ao total de votos
+    //Conta pra descobrir a porcentagem dos votos brancos em relação ao total de votos
     let porcentagemBranco = ((branco.length / totalVotos.length) * 100);
     //SAÍDA
 
     //Saída das listas de cada eleitor
     alert("O candidato Joãozinho teve " + candidatoJoaozinho.length + " voto(s)\n\nA candidata Mariazinha teve " + candidatoMariazinha.length + " voto(s)\n\n" + branco.length + " eleitores votaram em branco\n\n" + nulo.length + " eleitores votaram nulo");
     //Saída da porcentagem de votos nulos e brancos
-    alert("Os votos nulos representam " + porcentagemNulo + "% dos votos totais");
-    alert("Os votos brancos representam " + porcentagemBranco + "% dos votos totais");
+    alert("Os votos nulos representam " + porcentagemNulo.toFixed(2) + "% dos votos totais");
+    alert("Os votos brancos representam " + porcentagemBranco.toFixed(2) + "% dos votos totais");
     //Saída de quem venceu a eleição
     if (candidatoJoaozinho.length > candidatoMariazinha.length) {
         alert("O candidato Joãozinho venceu!");}
