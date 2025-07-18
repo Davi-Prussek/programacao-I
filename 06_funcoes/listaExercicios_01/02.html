@@ -6,11 +6,37 @@
     */
 
     //ENTRADA
-
-
+    let numero = Number(prompt("Qual número você deseja potenciar?"));
+    while (isNaN(numero)) {
+        alert("Responda apenas com números!");
+        numero = Number(prompt("Qual número você deseja potenciar?"));
+    }
+    let valor = 0;
     //PROCESSAMENTO
-
-
+    function cubo(valor) {
+        valor **= 3;
+        alert("O resultado é " + valor);
+    }
     //SAÍDA
+    cubo(numero);
 
+    //Versão que calcula qualquer número elevado a qualquer número
+
+    /*
+    let numero = Number(prompt("Qual número você deseja potenciar?"));
+    while (isNaN(numero)) {
+        alert("Responda apenas com números!");
+        numero = Number(prompt("Qual número você deseja potenciar?"));}
+    let potencia = Number(prompt("Você quer elevar a qual potência?\n\nSó escreva o número, sem o símbolo de potência"));
+    while (isNaN(potencia)) {
+        alert("Responda apenas com números!");
+        numero = Number(prompt("Você quer elevar a qual potência?\n\nSó escreva o número, sem o símbolo de potência"));}
+    let valor = 0;
+        //PROCESSAMENTO
+    function cubo(valor) {
+    valor **=potencia;
+    alert("O resultado é "+valor);}
+        //SAÍDA
+    cubo(numero);
+    */
 </script>

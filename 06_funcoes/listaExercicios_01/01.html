@@ -6,21 +6,23 @@
     *Substitua a palavra Visitante pelo nome do usuário, que será fornecido pelo próprio usuário.
     */
     //ENTRADA
-let nome = prompt("Qual seu nome?").trim();
-while (!isNaN(nome)) {
-    alert("Responda apenas com números!");
-    nome = prompt("Qual seu nome?").trim();}
+    let nome = prompt("Qual seu nome?").trim();
+    while (!isNaN(nome)) {
+        alert("Responda apenas com números!");
+        nome = prompt("Qual seu nome?").trim();}
     let listaNome = [];
     let comeco = nome.split("");
     let finalmente = comeco.shift();
-    let maiuscula = [];
-    let i = 0;
+    let saudacao;
+    let resultado;
     //PROCESSAMENTO 
-    function colocarNoArray() {
-        while (i <= nome.length) {
-            listaNome.push(comeco[i]);
-        i++}}
-        colocarNoArray();
-    alert("Bom dia " +finalmente.toUpperCase()+listaNome.join("")+"!");
-    //SAÍDA    
+    function colocarNoArray(resultado) {
+        //Loop for pra reorganizar os arrays e o nome
+        for (let i = 0; i <= nome.length; i++) { listaNome.push(comeco[i]); }
+        //Parte pra definir um resultado no loop
+        resultado = finalmente.toUpperCase() + listaNome.join("");
+        //Saída
+        alert("Bom dia " +resultado+ "!");}
+    //SAÍDA
+    colocarNoArray(saudacao);    
 </script>
