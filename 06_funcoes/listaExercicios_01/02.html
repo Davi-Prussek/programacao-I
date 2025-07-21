@@ -9,7 +9,8 @@
     function perguntaN() {
         numero = Number(prompt("Qual número você deseja potenciar?"));
         while (isNaN(numero)) {
-            alert("Responda apenas com números!"); numero = Number(prompt("Qual número você deseja potenciar?"));
+            alert("Responda apenas com números!");
+            numero = Number(prompt("Qual número você deseja potenciar?"));
         }}
     let numero;
     let resultado;
@@ -18,7 +19,7 @@
     let pergunta = prompt("Qual versão do programa deseja realizar?\n\n(Responda com cubo ou outra)").trim().charAt().toLowerCase();
     while (pergunta !== "c" && pergunta !== "o") {
         alert("Digite apenas uma das opções citadas!");
-        pergunta = prompt("Qual potência deseja realizar?\n\n(Responda com cubo ou outra)").tri().charAt().toLowerCase();}
+        pergunta = prompt("Qual potência deseja realizar?\n\n(Responda com cubo ou outra)").trim().charAt().toLowerCase();}
     switch (pergunta) {
         case "c":
             perguntaN();
@@ -26,9 +27,10 @@
             break;
         case "o":
             perguntaN();
-            potencia = Number(prompt("Você quer elevar a qual potência?\n\nSó escreva o número, sem o símbolo de potência")); while (isNaN(potencia)) {
+            potencia = Number(prompt("Você quer elevar a qual potência?\n\nSó escreva o número, sem o símbolo de potência")); 
+            while (isNaN(potencia)) {
                 alert("Responda apenas com números!");
-                numero = Number(prompt("Você quer elevar a qual potência?\n\nSó escreva o número, sem o símbolo de potência"));
+                potencia = Number(prompt("Você quer elevar a qual potência?\n\nSó escreva o número, sem o símbolo de potência"));
             } break;}
     //PROCESSAMENTO
     function execucao(valor, fator) {
