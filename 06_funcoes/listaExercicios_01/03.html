@@ -6,11 +6,13 @@
     */
 
     //ENTRADA
-
-
+let temperatura = Number(prompt("Qual temperatura em graus celsius você deseja converter?"));
+while (isNaN(temperatura)) {
+    alert("Digite apenas valores numéricos!");
+    temperatura = Number(prompt("Qual temperatura em graus celsius você deseja converter?"));}
     //PROCESSAMENTO
-
-
+let F;
+function trocar(C) {F = (9 * C + 160) / 5; alert("A temperatura em Fahrenheit vai ser "+F.toFixed(1)+"°F");}
     //SAÍDA
-
+trocar(temperatura);
 </script>
