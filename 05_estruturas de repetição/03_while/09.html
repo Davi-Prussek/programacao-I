@@ -1,4 +1,18 @@
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACERTE O NÚMERO ESCONDIDO</title>
+</head>
+<body>
+<h1>Advinhe o número escondido!</h1>
+<h2>Escolha a dificuldade</h2>
+<div id="controleDeDificuldade">
+    <button onclick="começarJogo(20)">Fácil (1 a 20)</button>
+    <button onclick="começarJogo(30)">Médio (1 a 30)</button>
+    <button onclick="começarJogo(40)">Difícil (1 a 40)</button>
+</div>
 <script>
     //Problema: Acertar o número
     /*
@@ -6,45 +20,35 @@
     */
 
     //ENTRADA && PROCESSAMENTO && SAÍDA
-
     //Variáveis pra descobrir o histórico
     let exibir;
     let historico = [];
-
     //Variáveis pra mostrar a quantidade de tentativas
     let zerar;
     let tentativas = 0;
     let recomecar;
-
     //Variável pra descobrir o número correto
     let resposta = 0;
-
     //Variáveis pra ver se o usuário quer repetir o jogo ou não
     let repeticao;
     let acerto = 0;
     let resultado = 1;
-
     //Loop do começo ou fim de jogo
+    function começarJogo(nivel) {
     while (acerto >= 0) {
-
         //Parte pra criar um número aleatório entre 1 e 30
-        let indice = Math.floor(Math.random() * 30);
+        let indice = Math.floor(Math.random() * nivel);
         indice += 1;
-
         //Parte da conta pra ver se o código vai continuar ou não,
         resultado -= 1;
-
         //Loop principal
         while (resultado === 0) {
-
             //Pergunta do número que o usuário desejar
-            resposta = Number(prompt("ACERTE O NÚMERO ESCONDIDO!\n\nDigite um número de 1 a 30 e tente acertar o valor\n\n(O programa irá dizer se você está mais pra baixo ou mais pra cima)"))
-
+            resposta = Number(prompt("ACERTE O NÚMERO ESCONDIDO!\n\nDigite um número de 1 a "+nivel+" e tente acertar o valor\n\n(O programa irá dizer se você está mais pra baixo ou mais pra cima)"))
             //Loop pra verificar se a resposta do usuário contém uma string ou não
-            while (isNaN(resposta) || resposta === 0 || resposta > 30) {
+            while (isNaN(resposta) || resposta === 0 || resposta > nivel) {
                 alert("Digite apenas valores numéricos dentro das condições!");
                 resposta = Number(prompt("Digite um número de 1 a 30 e tente acertar o valor\n\n(O programa irá dizer se você está mais pra baixo ou mais pra cima) "))}
-
             //Parte direcionada pra dar as dicas ao usuário e registrar as tentativas e quantas foram}
             if (resposta !== indice) {
                 if (resposta > indice) {
@@ -54,20 +58,22 @@
                 else if (resposta < indice) {
                     alert("O número escondido é maior");
                     historico.push(resposta);
-                    tentativas += 1;}}
-
+                    tentativas += 1;}
+                    //Respostas caso o usuário for muito ruim
+                if (tentativas === 10) {alert("Tá difícil?")}
+                if (tentativas === 15) {alert("Como você consegue?")}
+                if (tentativas === 20) {alert("Só pode ser brincadeira, né?")}
+                if (tentativas === 25) {alert("Você é a PIOR pessoa que eu já vi pra jogar esse jogo")}}
             //Caso o usuário acerte, registra a tentativa na quantidade e no registro, aí apresenta o resultado, além de contabilizar a sequência 
             else if (resposta === indice) {
                 historico.push(resposta);
                 tentativas += 1;
                 alert("Parabéns! você acertou!\n\n(Número de tentativas: " + tentativas + ")");
-
                 //Parte que mostra o histórico da partida se o usuário desejar
                 exibir = prompt("Deseja ver seu histórico de tentativas?\n\n(S-Sim ou N-Não)").trim().charAt().toLowerCase();
                 while (exibir !== "s" && exibir !== "n") {
                     alert("Responda com sim ou não!");
                     exibir = prompt("Deseja ver seu histórico de tentativas?\n\n(S-Sim ou N-Não)").trim().charAt().toLowerCase();}
-
                 //Entrega das informações do histórico
                 switch (exibir) {
                     case "s":
@@ -77,15 +83,12 @@
                     case "n":
                         historico = [];
                         break;}
-
                 //Conta a quantidade de vezes que o usuário jogou
                 acerto++;
                 if (acerto > 1) {
                     alert("Sequência de acertos: " + acerto)}
-
                 //Zera a quantidade de tentativas pra recomeçar o loop caso o usuário deseje recomeçar o jogo
                 tentativas = 0;
-
                 //Perguntar se o usuário deseja repetir o jogo, caso queira, vai configurar a variável do primeiro loop pra começar uma nova partida
                 repeticao = prompt("Deseja jogar novamente?\n\n(S-Sim ou N-Não)").trim().charAt().toLowerCase();
                 while (repeticao !== "s" && repeticao !== "n") {
@@ -94,17 +97,18 @@
                 switch (repeticao) {
                     case "s":
                         resultado += 1;
-
                         //O código vai perguntar se o usuário deseja jogar uma partida nova ou iniciar uma nova partida
                         recomecar = prompt("Deseja continuar na partida ou iniciar uma nova?\n\nResponda com C-Continuar ou R-Reiniciar\n\n(Iniciar uma nova partida zera a sua sequência de acertos)").trim().charAt().toLowerCase();
-                        while (recomecar !== "i" && recomecar !== "c" && recomecar !== "n" && recomecar !== "q" && recomecar !== "r") {
+                        while (recomecar !== "i" && recomecar !== "c" && recomecar !== "n" && recomecar !== "q" && recomecar !== "r"){
                             alert("Responda se quer uma nova partida ou continuar!");
-                            recomecar = prompt("Deseja continuar na partida ou iniciar uma nova?\n\n(Iniciar uma nova partida zera a sua sequência de acertos)").trim().charAt().toLowerCase();}
+                            recomecar = prompt("Deseja continuar na partida ou iniciar uma nova?\n\n(iniciar ou recomeçar)\n\n(Iniciar uma nova partida zera a sua sequência de acertos)").trim().charAt().toLowerCase();}
                         switch (recomecar) {
                             case "i":
                             case "n":
                             case "q":
                             case "r":
+                                document.getElementById("controleDeDificuldade").style.display = "block";
+                                return;
                                 acerto = 0;
                                 break;
                             case "c":
@@ -113,5 +117,21 @@
                     default:
                         alert("Tudo bem, obrigado por jogar!😁");
                         resultado -= 1;
-                        break;}}}}
+                        break;}}}}}
 </script>
+<style>
+    body {
+        background-color: aliceblue;
+        text-align: center;
+        h1 {font-size: 7vw;}
+        h2 {font-size: 3vw;}
+        button {
+            color: white;
+            border: none;
+            border-radius: 5px;
+            background-color: black;
+            padding: 8px 5px 8px 5px;
+            margin: 1.2vw;}}
+</style>
+</body>
+</html>
