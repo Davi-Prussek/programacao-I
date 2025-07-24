@@ -8,10 +8,25 @@
 
     //ENTRADA
 
-
+    //CARA, SEMPRE CHAME A FUNÇÃO, NUNCA ESQUEÇA DISSO PARA EVITAR 30 MINUTOS DE DOR DE CABEÇA DE FORMA BURRA
+    
+    let vogais = ["a", "e", "i", "o", "u"];
+    let resultado = [];
+    let outroResultado = [];
+    let palavra = prompt("Insira uma palavra e o programa irá dizer quantas vogais tem").trim().toLowerCase();
+    while (!isNaN(palavra)) {
+        alert("Responda apenas com letras")
+        palavra = prompt("Insira uma palavra e o programa irá dizer quantas vogais tem").trim().toLowerCase();
+    }
+    let separada = palavra.split("");
     //PROCESSAMENTO
-
-
+    function verificar() {
+        for (let i = 0; i < palavra.length; i++) {
+            if (vogais.includes(separada[i])) { resultado.push(separada[i]); }
+            else { outroResultado.push(separada[i]); }
+        }
+    }
     //SAÍDA
-
+    verificar();
+    alert("A palavra " + palavra + " possui " + resultado.length + " vogais e " + outroResultado.length + " consoantes");
 </script>

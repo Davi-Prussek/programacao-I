@@ -6,21 +6,22 @@
         */
 
         //ENTRADA
-        let base = Number(prompt("Qual a base do triângulo?"));
+
+        //CARA, SEMPRE CHAME A FUNÇÃO, NUNCA ESQUEÇA DISSO PARA EVITAR 30 MINUTOS DE DOR DE CABEÇA DE FORMA BURRA
+        
+        let b = Number(prompt("Qual a base do triângulo?"));
         while (isNaN(base)) {
             alert("Escreva apenas Números!");
-            base = Number(prompt("Qual a base do triângulo?"));
-        }
-        let altura = Number(prompt("Qual a altura do triângulo?"));
+            base = Number(prompt("Qual a base do triângulo?"));}
+            
+        let h = Number(prompt("Qual a altura do triângulo?"));
         while (isNaN(base)) {
             alert("Escreva apenas Números!");
-            base = Number(prompt("Qual a base triângulo?"));
-        }
+            base = Number(prompt("Qual a base triângulo?"));}
         //PROCESSAMENTO
-        function triangulo(b, h) {
+        function triangulo() {
             let A = (b * h) / 2;
-            document.write("A área de um um triângulo que tem a base de " +base+ " e a altura de " +altura+ " vai ser " +A);
-        }
+            document.write("A área de um um triângulo que tem a base de " +b+ " e a altura de " +h+ " vai ser " +A);}
         //SAÍDA
-        triangulo(base, altura);
+        triangulo();
     </script>

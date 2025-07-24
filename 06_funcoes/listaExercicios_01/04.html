@@ -6,16 +6,17 @@
     */
 
     //ENTRADA
-let temperatura = Number(prompt("Qual temperatura em graus fahrenheit você deseja converter?"));
-while (isNaN(temperatura)) {
+
+    //CARA, SEMPRE CHAME A FUNÇÃO, NUNCA ESQUEÇA DISSO PARA EVITAR 30 MINUTOS DE DOR DE CABEÇA DE FORMA BURRA
+
+let F = Number(prompt("Qual temperatura em graus fahrenheit você deseja converter?"));
+while (isNaN(F)) {
     alert("Digite apenas valores numéricos!");
-    temperatura = Number(prompt("Qual temperatura em graus fahrenheit você deseja converter?"));}
+    F = Number(prompt("Qual temperatura em graus fahrenheit você deseja converter?"));}
     //PROCESSAMENTO
-let F;
-function trocar(F) {
-    C = (F - 32) * 5 / 9; 
-    alert("A temperatura em graus celsius vai ser "+C.toFixed(1)+"°F");
-}
+function trocar() {
+    return ((F - 32) * 5 / 9).toFixed(1);}
     //SAÍDA
-trocar(temperatura);
+trocar();
+alert("A temperatura em graus celsius vai ser "+trocar()+"°F");
 </script>
