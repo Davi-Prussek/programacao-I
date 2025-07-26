@@ -1,16 +1,53 @@
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <script>
-    /*
-    PROBLEMA: DADOS DO LIVRO
-    Crie um objeto chamado livro com as propriedades titulo, autor e numeroDePaginas, e crie um método que retorne o livro em formato string.
-    */
+  /*
+      PROBLEMA: DADOS DO LIVRO
+      Crie um objeto chamado livro com as propriedades titulo, autor e numeroDePaginas, e crie um método que retorne o livro em formato string.
+      */
+
+  //ENTRADA && PROCESSAMENTO
+  let letraMaiuscula = (nome) => {
+    let nomeComeco;
+    let restoNome;
+    let nomeCompletoMaiusculo = [];
+    let primeiraLetra = nome.split(" ");
+
+    for (let i = 0; i < primeiraLetra.length; i++) {
+      nomeComeco = primeiraLetra[i].charAt(0);
+      restoNome = primeiraLetra[i].substring(1);
+      nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);
+    }
+    return nomeCompletoMaiusculo.join(" ");
+  };
+
+  let livro = {
+    titulo: [],
+    autor: [],
+    paginas: 0,
+    informaçõesGerais: function () {
+      return ("O nome do livro é "+this.titulo+", o autor(a) do livro é "+this.autor+", e esse livro possui "+this.paginas+" páginas");},
+};
+
+  let nomeLivro = prompt("Qual o nome do livro?").trim().toLowerCase();
+  
+  livro.titulo.push(letraMaiuscula(nomeLivro));
+
+  let autor = prompt("Qual o nome do autor?").trim().toLowerCase();
+  
+  while (!isNaN(autor)) {
+    alert("Responda apenas com letra!");
+    autor = prompt("Qual o nome do autor?").trim().toLowerCase();}
+
+  livro.autor.push(letraMaiuscula(autor));
+
+  let paginas = Number(prompt("Quantas páginas esse livro possui?"));
+  
+  while (isNaN(paginas)) {
+    alert("Responda apenas com valores numéricos!");
+    paginas = Number(prompt("Quantas páginas esse livro possui?"));}
     
-    //ENTRADA
+  livro.paginas = paginas;
 
-
-    //PROCESSAMENTO
-
-
-    //SAÍDA
-    
+  //SAÍDA
+  alert(livro.informaçõesGerais());
 </script>

@@ -10,14 +10,14 @@
         //CARA, SEMPRE CHAME A FUNÇÃO, NUNCA ESQUEÇA DISSO PARA EVITAR 30 MINUTOS DE DOR DE CABEÇA DE FORMA BURRA
         
         let b = Number(prompt("Qual a base do triângulo?"));
-        while (isNaN(base)) {
+        while (isNaN(b)) {
             alert("Escreva apenas Números!");
-            base = Number(prompt("Qual a base do triângulo?"));}
+            b = Number(prompt("Qual a base do triângulo?"));}
             
         let h = Number(prompt("Qual a altura do triângulo?"));
-        while (isNaN(base)) {
+        while (isNaN(h)) {
             alert("Escreva apenas Números!");
-            base = Number(prompt("Qual a base triângulo?"));}
+            h = Number(prompt("Qual a base triângulo?"));}
         //PROCESSAMENTO
         function triangulo() {
             let A = (b * h) / 2;
