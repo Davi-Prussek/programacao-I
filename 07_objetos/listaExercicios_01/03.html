@@ -1,5 +1,12 @@
-<meta charset="UTF-8" />
-<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
   /*
       PROBLEMA: DADOS DO LIVRO
       Crie um objeto chamado livro com as propriedades titulo, autor e numeroDePaginas, e crie um método que retorne o livro em formato string.
@@ -21,16 +28,14 @@
   };
 
   let livro = {
-    titulo: [],
-    autor: [],
+    titulo: "",
+    autor: "",
     paginas: 0,
     informaçõesGerais: function () {
-      return ("O nome do livro é "+this.titulo+", o autor(a) do livro é "+this.autor+", e esse livro possui "+this.paginas+" páginas");},
+      return ("Nome: "+this.titulo+", autor(a): "+this.autor+", páginas: "+this.paginas+"");},
 };
 
   let nomeLivro = prompt("Qual o nome do livro?").trim().toLowerCase();
-  
-  livro.titulo.push(letraMaiuscula(nomeLivro));
 
   let autor = prompt("Qual o nome do autor?").trim().toLowerCase();
   
@@ -38,16 +43,15 @@
     alert("Responda apenas com letra!");
     autor = prompt("Qual o nome do autor?").trim().toLowerCase();}
 
-  livro.autor.push(letraMaiuscula(autor));
-
   let paginas = Number(prompt("Quantas páginas esse livro possui?"));
   
   while (isNaN(paginas)) {
     alert("Responda apenas com valores numéricos!");
     paginas = Number(prompt("Quantas páginas esse livro possui?"));}
-    
+  
   livro.paginas = paginas;
-
+  livro.titulo = letraMaiuscula(nomeLivro);
+  livro.autor = letraMaiuscula(autor);
   //SAÍDA
-  alert(livro.informaçõesGerais());
+alert(livro.informaçõesGerais());
 </script>
