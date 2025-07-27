@@ -7,10 +7,94 @@
     
     //ENTRADA
 
+     let letraMaiuscula = (nome) => {
+    let nomeComeco;
+    let restoNome;
+    let nomeCompletoMaiusculo = [];
+    let primeiraLetra = nome.split(" ");
+    for (let i = 0; i < primeiraLetra.length; i++) {
+      nomeComeco = primeiraLetra[i].charAt(0);
+      restoNome = primeiraLetra[i].substring(1);
+      nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);}
+    return nomeCompletoMaiusculo.join(" ");};
 
+
+    function mostrarProUsuario() {
+        const nomesExibir = registro.map(cliente => cliente.nome);
+        return nomesExibir;
+    }
+
+    let registro = [];
+    let repetir = "s";
+    let saida = "s";
+
+while (repetir !== "n") {
+    let certeza = "";
+
+    cliente = {
+    nome: "",
+    senha: "",
+    idade: 0,
+    email: "",
+    informações: function() { return "Nome: "+this.nome+"\nIdade: "+this.idade+"\nEmail: "+this.email}
+}
+let nome = prompt("Digite seu nome completo").trim().toLowerCase();
+while(!isNaN(nome)){
+    alert("Digite apenas letras!");
+    nome = prompt("Digite seu nome").trim().toLowerCase();
+}
+let senha = prompt("Crie sua senha de registro").trim();
+while (certeza !== "s") {
+    certeza = prompt("Você tem certeza dessa senha?\n\n(S-Sim ou N-Não)").trim().toLowerCase().charAt();
+    while (certeza !== "s" && certeza !== "n") {
+        alert("Responda apenas com sim ou não!");
+        certeza = prompt("Você tem certeza dessa senha?\n\n(S-Sim ou N-Não)").trim().toLowerCase().charAt();
+    }
+    if (certeza === "n") {senha = prompt("Crie sua senha de registro\n\n(Com cuidado, por favor, não usamos banco de dados)").trim();  
+}
+}
+let idade = Number(prompt("Digite sua idade"));
+while(isNaN(idade)){
+    alert("Digite apenas valores numéricos!");
+    idade = Number(prompt("Digite sua idade"));
+}
+let email = prompt("Digite seu email").trim();
+while(!email.includes("@")){
+    alert("Digite um email válido!");
+    email = prompt("Digite seu email").trim();
+}
     //PROCESSAMENTO
+cliente.nome = letraMaiuscula(nome);
+cliente.senha = senha;
+cliente.idade = idade;
+cliente.email = email;
 
-
+registro.push(cliente);
+repetir = prompt("Você deseja registrar mais algum login?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
+while(repetir !== "s" && repetir !== "n"){
+    alert("Responda apenas com S-Sim ou N-Não!");
+    repetir = prompt("Você deseja registrar mais algum login?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();}
+}
     //SAÍDA
-    
+while (saida === "s" && saida === "s") {
+let resposta = prompt("Qual dos registros você deseja ver?\n\n(Usuários: "+mostrarProUsuario().join(", ")+")").trim().toLowerCase();
+mostrarProUsuario().join(",")
+while (!mostrarProUsuario().includes(letraMaiuscula(resposta))) {
+    alert("Responda apenas uma das opções dadas!");
+    resposta = prompt("Qual dos registros você deseja ver?\n\n(Usuários: "+mostrarProUsuario().join(", ")+")");}
+    const testar = registro.find(cliente => cliente.nome === letraMaiuscula(resposta)); 
+    let verificar = prompt("Digite a senha de confirmação para sabermos que é você"); 
+while (verificar !== testar.senha) {
+    alert("Senha incorreta!");
+    verificar = prompt("Digite a senha de confirmação para sabermos que é você");
+}
+const respostaFinal = registro.find(cliente => cliente.nome === letraMaiuscula(resposta));
+alert(respostaFinal.informações());
+
+saida = prompt("Deseja ver as informaçõs de outro usuário?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
+while(saida !== "s" && saida !== "n"){
+    alert("Responda apenas com S-Sim ou N-Não!");
+    saida = prompt("Deseja ver as informaçõs de outro usuário?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
+}
+}
 </script>
