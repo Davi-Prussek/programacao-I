@@ -9,18 +9,19 @@
 
 <body>
     <header>
-        <h1>Registro de clientes</h1>
+        <h1 id="tituloInicial">Registro de Clientes</h1>
     </header>
     <main>
         <section id="parte-I">
             <button id="botaoPrincipal">ENTRAR</button>
         </section>
         <section id="parte-II" style="display: none;" class="principal">
-            <h2>Controle dos registros</h2>
+            <h2 id="tituloSecundario">Controle dos registros</h2>
             <button id="botaoRegistro">REGISTRAR</button>
             <button id="botaoExibir">EXIBIR</button>
-            <button id="fecharAba">Bloquear Controles</button>
-            <p id="Mensagem">Registre clientes antes de ver o registro</p>
+            <button id="fecharAba">Fechar Controles</button>
+            <button id="deletarRegistro">DELETAR</button>
+            <p id="Mensagem">Registre clientes primeiro!</p>
         </section>
     </main>
     <script>
@@ -29,9 +30,6 @@
         Crie um objeto chamado cliente com as propriedades nome, idade, email, e crie um método que retorne o nome, idade e email do cliente em formato string.
         */
 
-
-        //Quando não tiver nenhum cliente regitrado, mostrar que não tem clientes registrados
-        
         //ENTRADA
 
         //INTERAÇÃO COM HTML
@@ -39,27 +37,44 @@
         document.getElementById("botaoRegistro").addEventListener("click", novoRegistro);
         document.getElementById("botaoExibir").addEventListener("click", mostrarRegistro);
         document.getElementById("fecharAba").addEventListener("click", fechar);
+        document.getElementById("deletarRegistro").addEventListener("click", deletar);
 
         const atoMostrarOpcoes = document.getElementById("parte-II");
         const atoBotaoPrincipal = document.getElementById("botaoPrincipal");
         const mensagemRegistroVazio = document.getElementById("Mensagem");
         mensagemRegistroVazio.style.display = "none";
-
         let registro = [];
 
         //PROCESSAMENTO
 
+          function CPF(cpf) {
+                    if (!cpf.includes(".")) {
+                        let CPF_p1 = cpf.slice(0, 3);
+                        let CPF_p2 = cpf.slice(3, 6);
+                        let CPF_p3 = cpf.slice(6, 9);
+                        let CPF_p4 = cpf.slice(9, 11);
+                return CPF_p1 + "." + CPF_p2 + "." + CPF_p3 + "-" + CPF_p4}
+                    else {
+                return cpf;}}
+
+        function mostrarProUsuario() {
+            const nomesExibir = registro.map(cliente => cliente.nome).sort();
+            return nomesExibir;}
+
         function verificarSenha() {
-            let verificar = "senha123";
+            let verificar = "senha";
             let tentativas = 0;
             let senha = prompt(
-                "Digite a senha").trim();
+                "Digite a senha");
+                if (senha === null) {return; } else {
+                    senha = senha.trim();
             while (senha !== verificar && tentativas < 5) {
                 alert("SENHA INCORRETA, TENTE NOVAMENTE!");
                 senha = prompt("Digite a senha").trim();
                 tentativas++;
-            }
+            }}
             if (senha === verificar) {
+                document.getElementById("tituloInicial").innerText = "Controle dos registros";
                 alert("Acesso liberado!");
                 atoMostrarOpcoes.style.display = "block";
                 atoBotaoPrincipal.style.display = "none";
@@ -88,18 +103,20 @@
 
             while (repetir !== "n") {
 
-                cliente = {
+                let cliente = {
                     nome: "",
                     idade: 0,
                     email: "",
                     CPF: "",
-                    informações: function () { return "Nome: " + this.nome + "\nIdade: " + this.idade + "\nEmail: " + this.email + "\nCPF: " + CPF() }}
+                    informações: function () { return "Nome: " + this.nome + "\nIdade: " + this.idade + "\nEmail: " + this.email + "\nCPF: " + this.CPF }}
 
-                let nome = prompt("Digite seu nome completo").trim().toLowerCase();
-                while (!isNaN(nome)) {
+                let nome = prompt("Digite seu nome completo");
+                if (nome === null) {return; } else {
+                    nome = nome.trim().toLowerCase();
+                while (!/^[a-zA-Z\s]+$/.test(nome)) {
                     alert("Digite apenas letras!");
                     nome = prompt("Digite seu nome").trim().toLowerCase();
-                }
+                }}
 
                 let idade = Number(prompt("Digite sua idade"));
                 while (isNaN(idade)) {
@@ -107,34 +124,24 @@
                     idade = Number(prompt("Digite sua idade"));
                 }
 
-                let email = prompt("Digite seu email").trim();
+                let email = prompt("Digite seu email");
+                if (email === null) {return; } else {
                 while (!email.includes("@")) {
+                    email = email.trim();
                     alert("Digite um email válido!");
                     email = prompt("Digite seu email").trim();
-                }
+                }}
 
                 let cpf = (prompt("Digite seu CPF"));
-                while (/[a-zA-Z]/.test(cpf) || cpf < 11) {
+                while (/[a-zA-Z]/.test(cpf) || cpf.length < 11) {
                     alert("Digite apenas valores numéricos!");
                     cpf = (prompt("Digite seu CPF"));
                 }
-
-                function CPF() {
-                    if (!cpf.includes(".")) {
-                        CPF_p1 = cpf.slice(0, 3);
-                        CPF_p2 = cpf.slice(3, 6);
-                        CPF_p3 = cpf.slice(6, 9);
-                        CPF_p4 = cpf.slice(9, 11);
-                        return CPF_p1 + "." + CPF_p2 + "." + CPF_p3 + "-" + CPF_p4
-                    }
-                    else {
-                        return cpf;
-                    }}
-                
+  
                 cliente.nome = letraMaiuscula(nome);
                 cliente.idade = idade;
                 cliente.email = email;
-                cliente.CPF = CPF();
+                cliente.CPF = CPF(cpf);
                 registro.push(cliente);
 
                 repetir = prompt("Você deseja registrar mais algum login?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
@@ -145,15 +152,30 @@
 
         function fechar() {
             atoMostrarOpcoes.style.display = "none";
-            atoBotaoPrincipal.style.display = "block";}
+            atoBotaoPrincipal.style.display = "block";
+            document.getElementById("tituloInicial").innerText = "Registro de Clientes";}
+        
+        function deletar() {
 
+            if (registro.length < 1) {
+                mensagemRegistroVazio.style.display = "block";
+                setTimeout(() => {
+                    mensagemRegistroVazio.style.display = "none";
+                },4500);}
+
+            else {
+            let escolhaDeletar = prompt("Qual registro deseja deletar?\n\n(Usuários: "+mostrarProUsuario().join(", ")+")");
+            if (escolhaDeletar === null) {return; } else {
+            escolhaDeletar = escolhaDeletar.trim().toLowerCase();
+                while (!mostrarProUsuario().includes(letraMaiuscula(escolhaDeletar))) {
+                alert("Responda um usuário válido!");
+                escolhaDeletar = prompt("Qual registro deseja deletar?\n\n(Usuários: "+mostrarProUsuario().join(", ")+")").trim().toLowerCase();}
+                
+            registro = registro.filter(cliente => cliente.nome !== letraMaiuscula(escolhaDeletar));
+        }}}
         //SAÍDA
 
         function mostrarRegistro() {
-
-            function mostrarProUsuario() {
-            const nomesExibir = registro.map(cliente => cliente.nome).sort();
-            return nomesExibir;}
 
             if (registro.length < 1) {
                 mensagemRegistroVazio.style.display = "block";
@@ -165,12 +187,14 @@
             let saida = "s";
 
             while (saida === "s") {
-                let resposta = prompt("Qual dos registros você deseja ver?\n\n(Usuários: " + mostrarProUsuario().join(", ") + ")").trim().toLowerCase();
+                let resposta = prompt("Qual dos registros você deseja ver?\n\n(Usuários: "+mostrarProUsuario().join(", ")+")");
+                if (resposta === null) {return; } else {
+                    resposta = resposta.trim().toLowerCase();
 
                 mostrarProUsuario().join(",");
 
                 while (!mostrarProUsuario().includes(letraMaiuscula(resposta))) {
-                    alert("Responda apenas uma das opções dadas!");
+                    alert("Responda um usuário válido!");
                     resposta = prompt("Qual dos registros você deseja ver?\n\n(Usuários: " + mostrarProUsuario().join(", ") + ")");
                 }
 
@@ -182,7 +206,7 @@
                 while (saida !== "s" && saida !== "n") {
                     alert("Responda apenas com S-Sim ou N-Não!");
                     saida = prompt("Deseja ver as informaçõs de outro usuário?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
-                }}}}
+                }}}}}
 
     </script>
     <style>
@@ -229,6 +253,18 @@
             font-size: 1.3vw;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-weight: bold;
+        }
+        #Mensagem {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 43vw;
+            font-size: 2vw;
+            color: red;
+        }
+        #tituloSecundario {
+            padding: 2vw;
+            font-size: 4vw;
         }
     </style>
 </body>
