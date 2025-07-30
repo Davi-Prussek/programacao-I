@@ -1,100 +1,235 @@
-<meta charset="UTF-8">
-<script>
-    /*
-    PROBLEMA: DADOS DO CLIENTE
-    Crie um objeto chamado cliente com as propriedades nome, idade, email, e crie um método que retorne o nome, idade e email do cliente em formato string.
-    */
-    
-    //ENTRADA
+<!DOCTYPE html>
+<html lang="pt-br">
 
-     let letraMaiuscula = (nome) => {
-    let nomeComeco;
-    let restoNome;
-    let nomeCompletoMaiusculo = [];
-    let primeiraLetra = nome.split(" ");
-    for (let i = 0; i < primeiraLetra.length; i++) {
-      nomeComeco = primeiraLetra[i].charAt(0);
-      restoNome = primeiraLetra[i].substring(1);
-      nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);}
-    return nomeCompletoMaiusculo.join(" ");};
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Registro de clientes</h1>
+    </header>
+    <main>
+        <section id="parte-I">
+            <button id="botaoPrincipal">ENTRAR</button>
+        </section>
+        <section id="parte-II" style="display: none;" class="principal">
+            <h2>Controle dos registros</h2>
+            <button id="botaoRegistro">REGISTRAR</button>
+            <button id="botaoExibir">EXIBIR</button>
+            <button id="fecharAba">Bloquear Controles</button>
+            <p id="Mensagem">Registre clientes antes de ver o registro</p>
+        </section>
+    </main>
+    <script>
+        /*
+        PROBLEMA: DADOS DO CLIENTE
+        Crie um objeto chamado cliente com as propriedades nome, idade, email, e crie um método que retorne o nome, idade e email do cliente em formato string.
+        */
 
 
-    function mostrarProUsuario() {
-        const nomesExibir = registro.map(cliente => cliente.nome);
-        return nomesExibir;
-    }
+        //Quando não tiver nenhum cliente regitrado, mostrar que não tem clientes registrados
+        
+        //ENTRADA
 
-    let registro = [];
-    let repetir = "s";
-    let saida = "s";
+        //INTERAÇÃO COM HTML
+        document.getElementById("botaoPrincipal").addEventListener("click", verificarSenha);
+        document.getElementById("botaoRegistro").addEventListener("click", novoRegistro);
+        document.getElementById("botaoExibir").addEventListener("click", mostrarRegistro);
+        document.getElementById("fecharAba").addEventListener("click", fechar);
 
-while (repetir !== "n") {
-    let certeza = "";
+        const atoMostrarOpcoes = document.getElementById("parte-II");
+        const atoBotaoPrincipal = document.getElementById("botaoPrincipal");
+        const mensagemRegistroVazio = document.getElementById("Mensagem");
+        mensagemRegistroVazio.style.display = "none";
 
-    cliente = {
-    nome: "",
-    senha: "",
-    idade: 0,
-    email: "",
-    informações: function() { return "Nome: "+this.nome+"\nIdade: "+this.idade+"\nEmail: "+this.email}
-}
-let nome = prompt("Digite seu nome completo").trim().toLowerCase();
-while(!isNaN(nome)){
-    alert("Digite apenas letras!");
-    nome = prompt("Digite seu nome").trim().toLowerCase();
-}
-let senha = prompt("Crie sua senha de registro").trim();
-while (certeza !== "s") {
-    certeza = prompt("Você tem certeza dessa senha?\n\n(S-Sim ou N-Não)").trim().toLowerCase().charAt();
-    while (certeza !== "s" && certeza !== "n") {
-        alert("Responda apenas com sim ou não!");
-        certeza = prompt("Você tem certeza dessa senha?\n\n(S-Sim ou N-Não)").trim().toLowerCase().charAt();
-    }
-    if (certeza === "n") {senha = prompt("Crie sua senha de registro\n\n(Com cuidado, por favor, não usamos banco de dados)").trim();  
-}
-}
-let idade = Number(prompt("Digite sua idade"));
-while(isNaN(idade)){
-    alert("Digite apenas valores numéricos!");
-    idade = Number(prompt("Digite sua idade"));
-}
-let email = prompt("Digite seu email").trim();
-while(!email.includes("@")){
-    alert("Digite um email válido!");
-    email = prompt("Digite seu email").trim();
-}
-    //PROCESSAMENTO
-cliente.nome = letraMaiuscula(nome);
-cliente.senha = senha;
-cliente.idade = idade;
-cliente.email = email;
+        let registro = [];
 
-registro.push(cliente);
-repetir = prompt("Você deseja registrar mais algum login?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
-while(repetir !== "s" && repetir !== "n"){
-    alert("Responda apenas com S-Sim ou N-Não!");
-    repetir = prompt("Você deseja registrar mais algum login?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();}
-}
-    //SAÍDA
-while (saida === "s" && saida === "s") {
-let resposta = prompt("Qual dos registros você deseja ver?\n\n(Usuários: "+mostrarProUsuario().join(", ")+")").trim().toLowerCase();
-mostrarProUsuario().join(",")
-while (!mostrarProUsuario().includes(letraMaiuscula(resposta))) {
-    alert("Responda apenas uma das opções dadas!");
-    resposta = prompt("Qual dos registros você deseja ver?\n\n(Usuários: "+mostrarProUsuario().join(", ")+")");}
-    const testar = registro.find(cliente => cliente.nome === letraMaiuscula(resposta)); 
-    let verificar = prompt("Digite a senha de confirmação para sabermos que é você"); 
-while (verificar !== testar.senha) {
-    alert("Senha incorreta!");
-    verificar = prompt("Digite a senha de confirmação para sabermos que é você");
-}
-const respostaFinal = registro.find(cliente => cliente.nome === letraMaiuscula(resposta));
-alert(respostaFinal.informações());
+        //PROCESSAMENTO
 
-saida = prompt("Deseja ver as informaçõs de outro usuário?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
-while(saida !== "s" && saida !== "n"){
-    alert("Responda apenas com S-Sim ou N-Não!");
-    saida = prompt("Deseja ver as informaçõs de outro usuário?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
-}
-}
-</script>
+        function verificarSenha() {
+            let verificar = "senha123";
+            let tentativas = 0;
+            let senha = prompt(
+                "Digite a senha").trim();
+            while (senha !== verificar && tentativas < 5) {
+                alert("SENHA INCORRETA, TENTE NOVAMENTE!");
+                senha = prompt("Digite a senha").trim();
+                tentativas++;
+            }
+            if (senha === verificar) {
+                alert("Acesso liberado!");
+                atoMostrarOpcoes.style.display = "block";
+                atoBotaoPrincipal.style.display = "none";
+                senha = "";
+            }
+            if (tentativas === 5) {
+                alert("Máximo de tentativas atingido, a página irá ser recarregada");
+                location.reload();
+            }
+        }
+
+        let letraMaiuscula = (nome) => {
+            let nomeComeco;
+            let restoNome;
+            let nomeCompletoMaiusculo = [];
+            let primeiraLetra = nome.split(" ");
+            for (let i = 0; i < primeiraLetra.length; i++) {
+                nomeComeco = primeiraLetra[i].charAt(0);
+                restoNome = primeiraLetra[i].substring(1);
+                nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);}
+
+            return nomeCompletoMaiusculo.join(" ");};
+
+        function novoRegistro() {
+            let repetir = "s";
+
+            while (repetir !== "n") {
+
+                cliente = {
+                    nome: "",
+                    idade: 0,
+                    email: "",
+                    CPF: "",
+                    informações: function () { return "Nome: " + this.nome + "\nIdade: " + this.idade + "\nEmail: " + this.email + "\nCPF: " + CPF() }}
+
+                let nome = prompt("Digite seu nome completo").trim().toLowerCase();
+                while (!isNaN(nome)) {
+                    alert("Digite apenas letras!");
+                    nome = prompt("Digite seu nome").trim().toLowerCase();
+                }
+
+                let idade = Number(prompt("Digite sua idade"));
+                while (isNaN(idade)) {
+                    alert("Digite apenas valores numéricos!");
+                    idade = Number(prompt("Digite sua idade"));
+                }
+
+                let email = prompt("Digite seu email").trim();
+                while (!email.includes("@")) {
+                    alert("Digite um email válido!");
+                    email = prompt("Digite seu email").trim();
+                }
+
+                let cpf = (prompt("Digite seu CPF"));
+                while (/[a-zA-Z]/.test(cpf) || cpf < 11) {
+                    alert("Digite apenas valores numéricos!");
+                    cpf = (prompt("Digite seu CPF"));
+                }
+
+                function CPF() {
+                    if (!cpf.includes(".")) {
+                        CPF_p1 = cpf.slice(0, 3);
+                        CPF_p2 = cpf.slice(3, 6);
+                        CPF_p3 = cpf.slice(6, 9);
+                        CPF_p4 = cpf.slice(9, 11);
+                        return CPF_p1 + "." + CPF_p2 + "." + CPF_p3 + "-" + CPF_p4
+                    }
+                    else {
+                        return cpf;
+                    }}
+                
+                cliente.nome = letraMaiuscula(nome);
+                cliente.idade = idade;
+                cliente.email = email;
+                cliente.CPF = CPF();
+                registro.push(cliente);
+
+                repetir = prompt("Você deseja registrar mais algum login?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
+                while (repetir !== "s" && repetir !== "n") {
+                    alert("Responda apenas com S-Sim ou N-Não!");
+                    repetir = prompt("Você deseja registrar mais algum login?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
+                }}}
+
+        function fechar() {
+            atoMostrarOpcoes.style.display = "none";
+            atoBotaoPrincipal.style.display = "block";}
+
+        //SAÍDA
+
+        function mostrarRegistro() {
+
+            function mostrarProUsuario() {
+            const nomesExibir = registro.map(cliente => cliente.nome).sort();
+            return nomesExibir;}
+
+            if (registro.length < 1) {
+                mensagemRegistroVazio.style.display = "block";
+                setTimeout(() => {
+                    mensagemRegistroVazio.style.display = "none";
+                },4500);}
+
+            else if (registro.length >= 1) {
+            let saida = "s";
+
+            while (saida === "s") {
+                let resposta = prompt("Qual dos registros você deseja ver?\n\n(Usuários: " + mostrarProUsuario().join(", ") + ")").trim().toLowerCase();
+
+                mostrarProUsuario().join(",");
+
+                while (!mostrarProUsuario().includes(letraMaiuscula(resposta))) {
+                    alert("Responda apenas uma das opções dadas!");
+                    resposta = prompt("Qual dos registros você deseja ver?\n\n(Usuários: " + mostrarProUsuario().join(", ") + ")");
+                }
+
+                const respostaFinal = registro.find(cliente => cliente.nome === letraMaiuscula(resposta));
+                alert(respostaFinal.informações());
+
+                saida = prompt("Deseja ver as informaçõs de outro usuário?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
+
+                while (saida !== "s" && saida !== "n") {
+                    alert("Responda apenas com S-Sim ou N-Não!");
+                    saida = prompt("Deseja ver as informaçõs de outro usuário?\n\n(Responda com S-Sim ou N-Não)").trim().toLowerCase().charAt();
+                }}}}
+
+    </script>
+    <style>
+        header {
+            background-color: black;
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+            font-size: 2rem;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        button {
+            border: none;
+            background-color: black;
+            color: white;
+            padding: 1vw 2vw;
+            border-radius: 1vw;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        main {
+            text-align: center;
+            padding: 5vw;
+        }
+        #parte-I {
+            text-align: center;
+            padding: 5vw;
+        }
+        #botaoPrincipal {
+        display: block;
+        margin: 0 auto;
+        }
+        #fecharAba {
+            position: absolute;
+            top: 2.2vw;
+            right: 1.5vw;
+            background-color: white;
+            color: black;
+            font-size: 1.3vw;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: bold;
+        }
+    </style>
+</body>
+</html>
