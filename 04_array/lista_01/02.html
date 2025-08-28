@@ -24,8 +24,8 @@ while(isNaN(n3)) {
 
 const listaNumeros = [n1, n2, n3];
     //PROCESSAMENTO
-const listaFinal = listaNumeros.sort((a, b) => a-b);
+const listaFinal = listaNumeros.sort((a, b) => b-a);
 
     //SAÍDA
-alert(listaFinal[2]+ " - " +listaFinal[1]+ " - " +listaFinal[0]);
+alert(listaFinal.join(" - "));
 </script>
