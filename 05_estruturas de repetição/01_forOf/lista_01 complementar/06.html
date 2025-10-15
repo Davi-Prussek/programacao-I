@@ -7,11 +7,14 @@
     */
 
     //Entrada
-
-
+    let lista = ["A", "E", 2, 4.8, "CINQUENTA", "Araquari", 80, 10, 3.2];
+    let soma = 0;
     //Processamento
-
-
+    for (let item of lista) {
+        if (typeof item === "number") {
+        soma += item;
+        }
+    }
     //Saída
-
+    alert("A soma de todos os números da lista: ("+lista.join(", ")+ ") dá:\n\n"+soma);
 </script>
