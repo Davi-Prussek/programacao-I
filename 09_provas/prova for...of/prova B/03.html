@@ -13,7 +13,7 @@
         desconto = desconto.replace("%", ""); 
     };
 
-    while (isNaN(desconto)) {
+    while (isNaN(desconto) || desconto == "") {
         alert("Escreva apenas valores numéricos!");
         desconto = Number(prompt("Qual será o desconto para os itens contidos na lista?\n\nNão coloque %"));
     }        

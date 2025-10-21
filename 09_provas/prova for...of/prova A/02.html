@@ -7,17 +7,24 @@
     Apresente para o usuário qual será o valor final da compra.
     */
     const contas = [50.00, 15.50, 120.00, 80];
+
     let juros = prompt("Qual será o juros aplicado aos valores?");
+
     if (juros.includes("%")) { 
         juros = juros.replace("%", "");};
-    while(isNaN(juros)) {
+
+    while(isNaN(juros) || juros == "") {
     alert("Escreva apenas valores numéricos!");
     juros = prompt("Qual será o juros aplicado aos valores?");
     };
 
     let valorFinal = 0;
     for (let item of contas) {
-        valorFinal += item + item*juros/100;
-    }
-    alert("O valor final aplicado na compra será " + valorFinal.toFixed(2) + " reais");
+        valorFinal += item + item*juros/100;}
+
+    let bonitinho = 0;
+    for (let item of contas) {
+        bonitinho += item; }
+
+    alert("O valor final da compra de R$"+bonitinho.toFixed(2)+" com juros aplicado será: " + valorFinal.toFixed(2) + " reais");
 </script>
