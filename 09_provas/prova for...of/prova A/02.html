@@ -9,8 +9,12 @@
     const contas = [50.00, 15.50, 120.00, 80];
     let juros = prompt("Qual será o juros aplicado aos valores?");
     if (juros.includes("%")) { 
-        juros = juros.replace("%", ""); 
+        juros = juros.replace("%", "");};
+    while(isNaN(juros)) {
+    alert("Escreva apenas valores numéricos!");
+    juros = prompt("Qual será o juros aplicado aos valores?");
     };
+
     let valorFinal = 0;
     for (let item of contas) {
         valorFinal += item + item*juros/100;
