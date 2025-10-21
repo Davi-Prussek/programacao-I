@@ -19,8 +19,10 @@
     }        
     let final = 0;
     for (let item of precos) {
-    final += item + item*0.10;
+    if (item >= 60) {
+    final += item + item*desconto/100;
     }
+    };
     let apresentar = 0;
     for (let item of precos) {
     apresentar += item;
