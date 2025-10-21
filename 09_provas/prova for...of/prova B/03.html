@@ -7,7 +7,7 @@
     Apresente para o usuário qual será o valor final da compra.
     */
     const precos = [50.00, 15.50, 120.00, 80];
-    let desconto = prompt("Qual será o desconto para os itens contidos na lista?").trim();
+    let desconto = prompt("Qual será o desconto para os itens contidos na lista acima de 60,00 reais?").trim();
 
     if (desconto.includes("%")) { 
         desconto = desconto.replace("%", ""); 
@@ -20,7 +20,7 @@
     let final = 0;
     for (let item of precos) {
     if (item >= 60) {
-    final += item + item*desconto/100;
+    final += item - item*desconto/100;
     }
     };
     let apresentar = 0;
